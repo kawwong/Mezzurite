@@ -18,6 +18,9 @@ export default [
       ...Object.keys(pkg.peerDependencies || {})
     ],
     plugins: [
+      nodeResolve({
+        jsnext: true
+      }),
       babel()
     ]
   },
@@ -33,6 +36,9 @@ export default [
       ...Object.keys(pkg.peerDependencies || {})
     ],
     plugins: [
+      nodeResolve({
+        jsnext: true
+      }),
       babel()
     ]
   },
