@@ -1,7 +1,5 @@
-import events from './events'
-import listeners from './listeners'
+import registerDispatchers from './dispatchers'
+import registerListeners from './listeners'
 
-export {
-  events,
-  listeners
-}
+registerDispatchers()
+registerListeners()

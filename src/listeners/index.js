@@ -1,5 +1,11 @@
-import listenForCompatible from './listenForCompatible'
+import onAppStart from './onAppStart'
+import onComponentEnd from './onComponentEnd'
+import onComponentStart from './onComponentStart'
 
-export default {
-  listenForCompatible
+function addMezzuriteEventListeners () {
+  window.addEventListener('mezzurite/AppStart', onAppStart)
+  window.addEventListener('mezzurite/ComponentEnd', onComponentEnd)
+  window.addEventListener('mezzurite/ComponentStart', onComponentStart)
 }
+
+export default addMezzuriteEventListeners
