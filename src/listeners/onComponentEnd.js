@@ -1,5 +1,5 @@
 import store from '../store'
-import { componentEnd } from '../actions/captureCycle'
+import { componentEnd } from '../actions/components'
 
 function onComponentEnd (component) {
   store.dispatch(componentEnd(component))

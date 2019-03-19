@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
 
-import captureCycle from './captureCycle'
-import compatible from './compatible'
+import components from './components'
 
 export default combineReducers({
-  captureCycle,
-  compatible
+  components
 })

@@ -1,7 +1,7 @@
-import compatible from './compatible'
+import components from './components'
 
-function setUpDispatchers () {
-  compatible()
+function dispatchers () {
+  components()
 }
 
-export default setUpDispatchers
+export default dispatchers
