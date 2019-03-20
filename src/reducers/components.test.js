@@ -7,9 +7,17 @@ describe('components.js', () => {
 
   it('should handle an action of type COMPONENT_START', () => {
     performance.now = jest.fn(() => 3)
-    expect(components({}, { payload: 'test', type: 'COMPONENT_START' })).toMatchObject({
-      test: {
+    expect(components({},
+      {
+        payload: {
+          id: 'testId',
+          name: 'test'
+        },
+        type: 'COMPONENT_START'
+      })).toMatchObject({
+      testId: {
         endTime: null,
+        name: 'test',
         startTime: 3
       }
     })
@@ -19,17 +27,18 @@ describe('components.js', () => {
     performance.now = jest.fn(() => 5)
     expect(components(
       {
-        test: {
-          endTime: null,
+        testId: {
+          name: 'test',
           startTime: 3
         }
       }, {
-        payload: 'test',
+        payload: 'testId',
         type: 'COMPONENT_END'
       }
     )).toMatchObject({
-      test: {
+      testId: {
         endTime: 5,
+        name: 'test',
         startTime: 3
       }
     })

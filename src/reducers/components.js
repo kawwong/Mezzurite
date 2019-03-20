@@ -3,8 +3,10 @@ const components = (state = {}, action) => {
     case 'COMPONENT_START': {
       return {
         ...state,
-        [action.payload]: {
+        [action.payload.id]: {
           endTime: null,
+          inViewport: action.payload.inViewport,
+          name: action.payload.name,
           startTime: performance.now()
         }
       }
