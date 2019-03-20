@@ -1,6 +1,5 @@
-import objectHash from 'object-hash'
-
 import store from '../store'
+const objectHash = require('object-hash')
 
 function select (state) {
   return state.components
