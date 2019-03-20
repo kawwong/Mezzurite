@@ -1,9 +1,9 @@
+import performanceNowPolyfill from '../polyfills/performance-now'
 import registerDispatchers from './dispatchers'
 import registerListeners from './listeners'
 
-const performanceNowPolyfill = require('../polyfills/performance-now')
-
-performanceNowPolyfill()
-
-registerDispatchers()
-registerListeners()
+export default function mezzurite () {
+  performanceNowPolyfill()
+  registerDispatchers()
+  registerListeners()
+}

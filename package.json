@@ -2,13 +2,15 @@
   "name": "mezzurite",
   "version": "0.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "./lib/mezzurite.js",
+  "unpkg": "./dist/mezzurite.js",
+  "module": "es/mezzurite.js",
   "scripts": {
     "build": "rollup --config rollup.config.js src/index.js",
     "test": "jest"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",

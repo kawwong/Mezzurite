@@ -12,7 +12,7 @@ function components () {
     const nextState = select(store.getState())
     if (objectHash(nextState) !== objectHash(currentState)) {
       currentState = nextState
-      window.dispatchEvent(new CustomEvent('mezzurite/componentsChanged'))
+      window.dispatchEvent(new CustomEvent('mezzurite/componentsChanged', currentState))
     }
   }
 

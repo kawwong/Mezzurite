@@ -1,4 +1,4 @@
-(function () {
+function performanceNowPolyfill () {
   if (!window.performance || !window.performance.now) {
     Date.now || (Date.now = function () {
       return new this().getTime()
@@ -13,4 +13,6 @@
       (window.performance.timing = {})).navigatorStart ||
         (window.performance.timing.navigatorStart = Date.now())
   }
-})()
+}
+
+export default performanceNowPolyfill
