@@ -1,3 +1,5 @@
+import objectHash from 'object-hash'
+
 import store from '../store'
 
 function select (state) {
@@ -9,7 +11,7 @@ function components () {
 
   function handleChange () {
     const nextState = select(store.getState())
-    if (JSON.stringify(nextState) !== JSON.stringify(currentState)) {
+    if (objectHash(nextState) !== objectHash(currentState)) {
       currentState = nextState
       window.dispatchEvent(new CustomEvent('mezzurite/componentsChanged'))
     }
