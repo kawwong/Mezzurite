@@ -5,11 +5,11 @@ function select (state) {
 }
 
 function components () {
-  let currentState = null
+  let currentState = {}
 
   function handleChange () {
     const nextState = select(store.getState())
-    if (nextState !== currentState) {
+    if (JSON.stringify(nextState) !== JSON.stringify(currentState)) {
       currentState = nextState
       window.dispatchEvent(new CustomEvent('mezzurite/componentsChanged'))
     }
