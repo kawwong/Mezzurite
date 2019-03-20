@@ -36,7 +36,9 @@ describe('components.js', () => {
           startTime: 3
         }
       }, {
-        payload: 'testId',
+        payload: {
+          id: 'testId'
+        },
         type: 'COMPONENT_END'
       }
     )).toMatchObject({

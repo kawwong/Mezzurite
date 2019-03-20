@@ -15,8 +15,8 @@ const components = (state = {}, action) => {
     case 'COMPONENT_END': {
       return {
         ...state,
-        [action.payload]: {
-          ...state[action.payload],
+        [action.payload.id]: {
+          ...state[action.payload.id],
           endTime: performance.now()
         }
       }

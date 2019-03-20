@@ -5,7 +5,9 @@ import onComponentEnd from './onComponentEnd'
 describe('onComponentEnd.js', () => {
   it('should dispatch the component to the store', () => {
     store.dispatch = jest.fn()
-    onComponentEnd('test')
+    onComponentEnd({
+      detail: 'test'
+    })
 
     expect(store.dispatch).toHaveBeenCalledWith(componentEnd('test'))
   })

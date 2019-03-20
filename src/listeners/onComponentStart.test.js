@@ -5,8 +5,10 @@ import onComponentStart from './onComponentStart'
 describe('onComponentStart.js', () => {
   it('should dispatch the component to the store', () => {
     store.dispatch = jest.fn()
-    onComponentStart('test')
+    onComponentStart({
+      detail: 'testComponent'
+    })
 
-    expect(store.dispatch).toHaveBeenCalledWith(componentStart('test'))
+    expect(store.dispatch).toHaveBeenCalledWith(componentStart('testComponent'))
   })
 })

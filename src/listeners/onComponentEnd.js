@@ -1,8 +1,8 @@
 import store from '../store'
 import { componentEnd } from '../actions/components'
 
-function onComponentEnd (component) {
-  store.dispatch(componentEnd(component))
+function onComponentEnd (event) {
+  store.dispatch(componentEnd(event.detail))
 }
 
 export default onComponentEnd
