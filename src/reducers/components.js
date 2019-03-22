@@ -1,3 +1,5 @@
+import getViewportDimensions from '../utilities/getViewportDimensions'
+
 const components = (state = {}, action) => {
   switch (action.type) {
     case 'COMPONENT_START': {
@@ -17,7 +19,8 @@ const components = (state = {}, action) => {
         [action.payload.id]: {
           ...state[action.payload.id],
           endTime: performance.now(),
-          inViewport: action.payload.inViewport
+          inViewport: action.payload.inViewport,
+          viewportDimensions: getViewportDimensions()
         }
       }
     }
