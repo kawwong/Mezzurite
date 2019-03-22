@@ -11,14 +11,12 @@ describe('components.js', () => {
       {
         payload: {
           id: 'testId',
-          inViewport: true,
           name: 'test'
         },
         type: 'COMPONENT_START'
       })).toMatchObject({
       testId: {
         endTime: null,
-        inViewport: true,
         name: 'test',
         startTime: 3
       }
@@ -31,20 +29,20 @@ describe('components.js', () => {
       {
         testId: {
           endTime: null,
-          inViewport: false,
           name: 'test',
           startTime: 3
         }
       }, {
         payload: {
-          id: 'testId'
+          id: 'testId',
+          inViewport: true
         },
         type: 'COMPONENT_END'
       }
     )).toMatchObject({
       testId: {
         endTime: 5,
-        inViewport: false,
+        inViewport: true,
         name: 'test',
         startTime: 3
       }

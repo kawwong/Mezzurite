@@ -5,7 +5,6 @@ const components = (state = {}, action) => {
         ...state,
         [action.payload.id]: {
           endTime: null,
-          inViewport: action.payload.inViewport,
           name: action.payload.name,
           startTime: performance.now()
         }
@@ -17,7 +16,8 @@ const components = (state = {}, action) => {
         ...state,
         [action.payload.id]: {
           ...state[action.payload.id],
-          endTime: performance.now()
+          endTime: performance.now(),
+          inViewport: action.payload.inViewport
         }
       }
     }
