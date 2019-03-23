@@ -30,6 +30,7 @@ describe('components.js', () => {
       height: 1,
       width: 1
     }))
+    Object.defineProperty(global, 'window', { writable: true, value: { location: { pathname: '/test' } } })
     expect(components(
       {
         testId: {
@@ -49,6 +50,7 @@ describe('components.js', () => {
         endTime: 5,
         inViewport: true,
         name: 'test',
+        route: '/test',
         startTime: 3,
         viewportDimensions: {
           height: 1,

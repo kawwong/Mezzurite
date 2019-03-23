@@ -20,6 +20,7 @@ const components = (state = {}, action) => {
           ...state[action.payload.id],
           endTime: performance.now(),
           inViewport: action.payload.inViewport,
+          route: window.location.pathname,
           viewportDimensions: getViewportDimensions()
         }
       }

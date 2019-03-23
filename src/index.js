@@ -10,8 +10,8 @@ if (mezzuriteState == null) {
   registerListeners()
 
   sessionStorage.setItem('mezzurite/state', 'active')
-}
 
-window.addEventListener('unload', () => {
-  sessionStorage.removeItem('mezzurite/state')
-})
+  window.addEventListener('unload', () => {
+    sessionStorage.removeItem('mezzurite/state')
+  })
+}
