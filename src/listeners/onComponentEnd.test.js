@@ -1,6 +1,7 @@
 import { componentEnd } from '../actions/components'
 import store from '../store'
 import onComponentEnd from './onComponentEnd'
+import * as calculateInViewport from '../utilities/calculateInViewport'
 import * as getViewportDimensions from '../utilities/getViewportDimensions'
 
 describe('onComponentEnd.js', () => {
@@ -23,14 +24,15 @@ describe('onComponentEnd.js', () => {
     expect(store.dispatch).not.toHaveBeenCalled()
   })
 
-  it('should dispatch the component data to the store', () => {
+  it('should dispatch the component data to the store', async () => {
+    calculateInViewport.default = jest.fn(() => new Promise(resolve => resolve(true)))
     getViewportDimensions.default = jest.fn(() => ({
       height: 1,
       width: 1
     }))
     performance.now = jest.fn(() => 5)
     Object.defineProperty(global, 'window', { value: { location: { pathname: '/route' } }, writable: true })
-    onComponentEnd({
+    await onComponentEnd({
       detail: {
         endTime: 5,
         id: 'id',
