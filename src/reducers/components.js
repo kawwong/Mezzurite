@@ -1,14 +1,11 @@
-import getViewportDimensions from '../utilities/getViewportDimensions'
-
 const components = (state = {}, action) => {
   switch (action.type) {
     case 'COMPONENT_START': {
       return {
         ...state,
         [action.payload.id]: {
-          endTime: null,
           name: action.payload.name,
-          startTime: performance.now()
+          startTime: action.payload.startTime
         }
       }
     }
@@ -18,10 +15,10 @@ const components = (state = {}, action) => {
         ...state,
         [action.payload.id]: {
           ...state[action.payload.id],
-          endTime: performance.now(),
+          endTime: action.payload.endTime,
           inViewport: action.payload.inViewport,
-          route: window.location.pathname,
-          viewportDimensions: getViewportDimensions()
+          route: action.payload.route,
+          viewportDimensions: action.payload.viewportDimensions
         }
       }
     }
