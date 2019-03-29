@@ -4,16 +4,20 @@ import performanceNowPolyfill from '../polyfills/performance-now'
 import registerDispatchers from './dispatchers'
 import registerListeners from './listeners'
 
-const mezzuriteState = sessionStorage.getItem('mezzurite/state')
+function mezzurite () {
+  const mezzuriteState = sessionStorage.getItem('mezzurite/state')
 
-if (mezzuriteState == null) {
-  performanceNowPolyfill()
-  registerDispatchers()
-  registerListeners()
+  if (mezzuriteState == null) {
+    performanceNowPolyfill()
+    registerDispatchers()
+    registerListeners()
 
-  sessionStorage.setItem('mezzurite/state', 'active')
+    sessionStorage.setItem('mezzurite/state', 'active')
 
-  window.addEventListener('unload', () => {
-    sessionStorage.removeItem('mezzurite/state')
-  })
+    window.addEventListener('unload', () => {
+      sessionStorage.removeItem('mezzurite/state')
+    })
+  }
 }
+
+export default mezzurite
