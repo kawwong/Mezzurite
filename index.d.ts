@@ -83,6 +83,9 @@ export interface MezzuriteData {
  * or the name of the custom tag. Different MezzuriteComponents of
  * the same type will have the same name.
  * 
+ * @param route A string that contains the current pathname of window.location
+ * to capture the route under which the component was rendered. 
+ * 
  * @param startTime A start time metric contains the time stamp of
  * when the component began rendering. In modern browsers, this is
  * done by using performance.now(), which results in a high resolution
@@ -91,6 +94,7 @@ export interface MezzuriteData {
  */
 interface ComponentStartSnapshot {
   name: string
+  route: string
   startTime: DOMHighResTimeStamp | number
 }
 
