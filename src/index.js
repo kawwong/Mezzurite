@@ -5,17 +5,17 @@ import registerDispatchers from './dispatchers'
 import registerListeners from './listeners'
 
 function initializeMezzurite () {
-  const mezzuriteState = sessionStorage.getItem('mezzurite/state')
+  const mezzuriteState = localStorage.getItem('mezzurite/state')
 
   if (mezzuriteState == null) {
     performanceNowPolyfill()
     registerDispatchers()
     registerListeners()
 
-    sessionStorage.setItem('mezzurite/state', 'active')
+    localStorage.setItem('mezzurite/state', 'active')
 
     window.addEventListener('unload', () => {
-      sessionStorage.removeItem('mezzurite/state')
+      localStorage.removeItem('mezzurite/state')
     })
   }
 }
