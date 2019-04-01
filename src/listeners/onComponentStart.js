@@ -7,6 +7,7 @@ function onComponentStart (event) {
     store.dispatch(componentStart({
       id: event.detail.id,
       name: event.detail.name,
+      route: window.location.pathname,
       startTime
     }))
   }

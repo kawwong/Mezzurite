@@ -24,6 +24,7 @@ describe('onComponentStart.js', () => {
 
   it('should dispatch the component data to the store', () => {
     performance.now = jest.fn(() => 5)
+    Object.defineProperty(global, 'window', { value: { location: { pathname: '/route' } }, writable: true })
     onComponentStart({
       detail: {
         id: 'id',
@@ -34,6 +35,7 @@ describe('onComponentStart.js', () => {
     expect(store.dispatch).toHaveBeenCalledWith(componentStart({
       id: 'id',
       name: 'name',
+      route: '/route',
       startTime: 5
     }))
   })

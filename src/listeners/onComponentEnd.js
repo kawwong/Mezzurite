@@ -13,7 +13,6 @@ async function onComponentEnd (event) {
       endTime,
       id: event.detail.id,
       inViewport,
-      route: window.location.pathname,
       viewportDimensions
     }))
   }

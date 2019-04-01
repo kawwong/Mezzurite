@@ -31,13 +31,11 @@ describe('onComponentEnd.js', () => {
       width: 1
     }))
     performance.now = jest.fn(() => 5)
-    Object.defineProperty(global, 'window', { value: { location: { pathname: '/route' } }, writable: true })
     await onComponentEnd({
       detail: {
         endTime: 5,
         id: 'id',
         inViewport: true,
-        route: '/route',
         viewportDimensions: {
           height: 1,
           width: 1
@@ -49,7 +47,6 @@ describe('onComponentEnd.js', () => {
       endTime: 5,
       id: 'id',
       inViewport: true,
-      route: '/route',
       viewportDimensions: {
         height: 1,
         width: 1
