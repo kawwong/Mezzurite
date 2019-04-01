@@ -4,7 +4,7 @@ import performanceNowPolyfill from '../polyfills/performance-now'
 import registerDispatchers from './dispatchers'
 import registerListeners from './listeners'
 
-function mezzurite () {
+function initializeMezzurite () {
   const mezzuriteState = sessionStorage.getItem('mezzurite/state')
 
   if (mezzuriteState == null) {
@@ -20,4 +20,4 @@ function mezzurite () {
   }
 }
 
-export default mezzurite
+export default initializeMezzurite
