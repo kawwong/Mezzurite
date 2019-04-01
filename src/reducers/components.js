@@ -5,6 +5,7 @@ const components = (state = {}, action) => {
         ...state,
         [action.payload.id]: {
           name: action.payload.name,
+          route: action.payload.route,
           startTime: action.payload.startTime
         }
       }
@@ -17,7 +18,6 @@ const components = (state = {}, action) => {
           ...state[action.payload.id],
           endTime: action.payload.endTime,
           inViewport: action.payload.inViewport,
-          route: action.payload.route,
           viewportDimensions: action.payload.viewportDimensions
         }
       }

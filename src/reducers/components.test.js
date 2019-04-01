@@ -11,12 +11,14 @@ describe('components.js', () => {
         payload: {
           id: 'testId',
           name: 'test',
+          route: '/test',
           startTime: 3
         },
         type: 'COMPONENT_START'
       })).toMatchObject({
       testId: {
         name: 'test',
+        route: '/test',
         startTime: 3
       }
     })
@@ -27,6 +29,7 @@ describe('components.js', () => {
       {
         testId: {
           name: 'test',
+          route: '/test',
           startTime: 3
         }
       }, {
@@ -34,7 +37,6 @@ describe('components.js', () => {
           endTime: 5,
           id: 'testId',
           inViewport: true,
-          route: '/test',
           viewportDimensions: {
             height: 1,
             width: 1
